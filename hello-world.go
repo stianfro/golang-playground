@@ -5,6 +5,19 @@ import (
 	"math/cmplx"
 )
 
+func printNumberString(i int) {
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	default:
+		fmt.Println("none")
+	}
+}
+
 func main() {
 	a := 1
 	b := "hello"
@@ -35,4 +48,40 @@ func main() {
 	names := [2]string{"Stian", "Aoba"}
 
 	fmt.Println(array, names)
+
+	// slices
+	// var f []int
+	numbers := []int{1, 2, 3, 4}
+	numbers = append(numbers, 2, 4)
+	fmt.Println(numbers)
+
+	slice1 := numbers[2:]
+	fmt.Println(slice1)
+
+	slice2 := numbers[:3]
+	fmt.Println(slice2)
+
+	slice3 := numbers[1:4]
+	fmt.Println(slice3)
+
+	array1 := []int{1, 2, 3, 4}
+	array2 := make([]int, 4)
+
+	copy(array2, array1)
+
+	// if..else
+	num := 9
+	if num < 0 {
+		fmt.Printf("%d is negative \n", num)
+	} else if num < 10 {
+		fmt.Printf("%d has 1 digit \n", num)
+	} else {
+		fmt.Printf("%d has multiple digits \n", num)
+	}
+
+	// switch case
+	printNumberString(1)
+	printNumberString(2)
+	printNumberString(3)
+	printNumberString(4)
 }
