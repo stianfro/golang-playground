@@ -1,9 +1,16 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/cmplx"
+	"time"
 )
+
+type response struct {
+	Page   int      `json:"page"`
+	Fruits []string `json:"fruits"`
+}
 
 func printNumberString(i int) {
 	switch i {
@@ -15,6 +22,25 @@ func printNumberString(i int) {
 		fmt.Println("three")
 	default:
 		fmt.Println("none")
+	}
+}
+
+func f(from string) {
+	for i := 0; i < 3; i++ {
+		time.Sleep(1 * time.Millisecond)
+		fmt.Println(from, ":", i)
+	}
+}
+
+func fizzBuzz(i int) {
+	if i%3 == 0 && i%5 == 0 {
+		fmt.Println("FizzBuzz")
+	} else if i%3 == 0 {
+		fmt.Println("Fizz")
+	} else if i%5 == 0 {
+		fmt.Println("Buzz")
+	} else {
+		fmt.Println(i)
 	}
 }
 
@@ -84,4 +110,58 @@ func main() {
 	printNumberString(2)
 	printNumberString(3)
 	printNumberString(4)
+
+	// For loop
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
+
+	// While loop
+	sum2 := 1
+	for sum2 < 1000 {
+		sum2 += sum2
+	}
+	fmt.Println(sum2)
+
+	// Infinite loop
+	// for {
+	// 	do something
+	// }
+
+	// Each loop
+	kvs := map[string]string{"name": "Stian", "lastname": "Fro"}
+	for k, v := range kvs {
+		fmt.Printf("%s -> %s\n", k, v)
+	}
+
+	// Each with index
+	arr := []string{"a", "b", "c", "e"}
+	for index, value := range arr {
+		fmt.Println(index, value)
+	}
+
+	// Convert to json
+	mapA := map[string]int{"apple": 5, "lettuce": 7}
+	mapB, _ := json.Marshal(mapA)
+	fmt.Println(string(mapB))
+
+	// Convert from json
+	str := `{"page": 1, "fruits": ["apple", "peach"]}`
+	res := response{}
+	json.Unmarshal([]byte(str), &res)
+	fmt.Println(res.Fruits)
+
+	// Concurrency
+	go f("goroutine")
+
+	f("main")
+	fmt.Println("done")
+
+	// Fizzbuzz
+	count := 20
+	for i := 10; i < count; i++ {
+		fizzBuzz(i)
+	}
 }
