@@ -1,3 +1,9 @@
+# Scratchpad
+
+This is where I will put old stuff for reference.
+
+## Basic functionality
+
 ```go
 package main
 

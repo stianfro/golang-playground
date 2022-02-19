@@ -3,21 +3,29 @@ package main
 import "fmt"
 
 type Saiyan struct {
-	Name   string
-	Power  int
-	Father *Saiyan
+	*Person
+	Power int
+}
+
+type Person struct {
+	Name string
+}
+
+func (p *Person) Introduce() {
+	fmt.Printf("Hi, I'm %s\n", p.Name)
+}
+
+func (s *Saiyan) Introduce() {
+	fmt.Printf("Hi, I'm %s. Ya!\n", s.Name)
 }
 
 // Page 33
 func main() {
-	gohan := &Saiyan{
-		Name:  "Gohan",
-		Power: 1000,
-		Father: &Saiyan{
-			Name:   "Goku",
-			Power:  9001,
-			Father: nil,
-		},
+	goku := &Saiyan{
+		Person: &Person{"Goku"},
+		Power:  9001,
 	}
-	fmt.Println(gohan.Father.Name)
+	goku.Introduce()
+	fmt.Println(goku.Name)
+	fmt.Println(goku.Person.Name)
 }
