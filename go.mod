@@ -1,3 +1,3 @@
-module hello-world
+module main
 
 go 1.17

@@ -8,6 +8,15 @@ on:
 
 jobs:
 
+  lint:
+    runs-on: ubuntu-latest
+    container: golangci/golangci-lint:v1.44.0
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: golangci-lint
+        run: golangci-lint run -v
+
   build:
     runs-on: ubuntu-latest
     steps:

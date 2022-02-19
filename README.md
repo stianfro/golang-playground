@@ -2,4 +2,4 @@
 
 # Go Playground
 
-Just me testing out golang.
+Just me testing out golang, primarily following "Little Go Book".

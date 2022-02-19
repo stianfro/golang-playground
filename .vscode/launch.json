@@ -10,8 +10,7 @@
       "request": "launch",
       "mode": "auto",
       "program": "${fileDirname}",
-      "hideSystemGoroutines": true,
-      "output": "debug"
+      "hideSystemGoroutines": true
     }
   ]
 }
