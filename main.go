@@ -1,18 +1,21 @@
 package main
 
-import "fmt"
+type Saiyan struct {
+	Name   string
+	Power  int
+	Father *Saiyan
+}
 
 func main() {
-	scores := make([]int, 0, 5)
-	c := cap(scores)
-	fmt.Println(c)
+	goku := &Saiyan{Name: "Goku", Power: 9001}
 
-	for i := 0; i < 25; i++ {
-		scores = append(scores, i)
+	extractPowers(goku)
+}
 
-		if cap(scores) != c {
-			c = cap(scores)
-			fmt.Println(c)
-		}
+func extractPowers(saiyans []*Saiyan) []int {
+	powers := make([]int, len(saiyans))
+	for index, saiyan := range saiyans {
+		powers[index] = saiyan.Power
 	}
+	return powers
 }

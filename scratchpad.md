@@ -174,3 +174,15 @@ func main() {
 }
 
 ```
+
+## Chapter 2
+
+## Chapter 3
+
+```go
+// Initializing slices:
+names := []string{"leto", "jessica", "paul"}
+checks := make([]bool, 10)
+var names []string
+scores := make([]int, 0, 20)
+```
